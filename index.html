@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nevil Chaudhari | Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">
+</head>
+
+<style>
+    * {
+        cursor: none;
+    }
+
+    /* Instant-follow dot */
+    .cursor-dot {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 6px;
+        height: 6px;
+        background: #fff;
+        border-radius: 50%;
+        pointer-events: none;
+        z-index: 9999;
+        transform: translate(-50%, -50%);
+    }
+
+    /* Delayed hollow circle */
+    .cursor-ring {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 28px;
+        height: 28px;
+        border: 2px solid #fff;
+        border-radius: 50%;
+        pointer-events: none;
+        z-index: 9998;
+        transform: translate(-50%, -50%);
+        transition: width 0.2s ease, height 0.2s ease, opacity 0.2s ease;
+    }
+
+    /* Hover effect class */
+    .cursor-ring.hover {
+        opacity: 0;
+    }
+
+    .cursor-dot.hide {
+        opacity: 1;
+        width: 20px;
+        height: 20px;
+    }
+</style>
+
+<body>
+    <div class="cursor-dot"></div>
+    <div class="cursor-ring"></div>
+
+    <!-- Hero Section -->
+    <header class="hero">
+        <div class="hero-content">
+            <h1>Hello, I'm <span>Nevil Chaudhari</span></h1>
+            <p>Flutter Developer | App Builder | Problem Solver</p>
+            <div class="buttons">
+                <a href="#projects" class="btn clickable">View Projects</a>
+                <a href="Resume.pdf" class="btn btn-outline clickable">Download Resume</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- About Section -->
+    <section id="about" class="section about-section">
+        <h2>About Me</h2>
+        <div class="about-content">
+            <img src="me.png" alt="Your Photo" class="clickable about-photo">
+            <div class="about-text">
+                <p>
+                    I’m a <strong>Computer Engineering student</strong> passionate about
+                    building <strong>scalable apps</strong> that solve real-world problems.
+                    Recently, I developed a <em>secure client–freelancer platform</em> with
+                    <strong>real-time messaging</strong>, <strong>offline-first data handling</strong>,
+                    and a <strong>clean, modern UI</strong>.
+                </p>
+                <p>
+                    I thrive on learning new technologies, experimenting with creative solutions,
+                    and collaborating with teams to bring ideas to life.
+                    My goal is to innovate, improve user experience, and build tools that make an impact.
+                </p>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Skills Section -->
+    <section id="skills" class="section">
+        <h2>Skills</h2>
+        <div class="skills-container">
+            <div class="skill clickable">Flutter</div>
+            <div class="skill clickable">Dart</div>
+            <div class="skill clickable">Supabase</div>
+            <div class="skill clickable">Hive</div>
+            <div class="skill clickable">Firebase</div>
+            <div class="skill clickable">UI/UX</div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="section">
+        <h2>Projects</h2>
+        <div class="projects-container">
+            <a href="project.html" class="project-card clickable">
+                <h3>Freelancer-Client App</h3>
+                <p>A secure platform to connect clients & freelancers with real-time chat and offline-first storage.</p>
+            </a>
+            <!-- <div class="project-card">
+                <h3>Profile Card Widget</h3>
+                <p>A reusable Flutter widget to display user details with modern UI design.</p>
+            </div> -->
+        </div>
+    </section>
+
+    <!-- <section id="contact" class="section contact-section">
+        <h2>📬 Contact Me</h2>
+        <div class="contact-cards clickable">
+            <a href="mailto:nevil@example.com" class="contact-card">
+                <span>📧</span>
+                <p>Email</p>
+                <small>chaudharinevil106@gmail.com</small>
+            </a>
+            <a href="https://www.instagram.com/nevil_106_?igsh=dGdrbTFrMnhkejFi" target="_blank" class="contact-card">
+                <span>💼</span>
+                <p>Instagram</p>
+                <small>linkedin.com/in/nevilchaudhari</small>
+            </a>
+            <a href="www.linkedin.com/in/nevilchaudhari" target="_blank" class="contact-card">
+                <span>💻</span>
+                <p>LinkedIn</p>
+                <small>github.com/nevilchaudhari</small>
+            </a>
+        </div>
+    </section> -->
+
+    <section id="contact" class="section contact-section">
+    <h2>Contact Me</h2>
+    <div class="contact-cards clickable">
+        <a href="mailto:nevil@example.com" class="contact-card">
+            <img src="images/gmail.png" alt="Email Logo" class="contact-logo">
+            <p>Email</p>
+            <small>chaudharinevil106@gmail.com</small>
+        </a>
+        <a href="https://www.instagram.com/nevil_106_?igsh=dGdrbTFrMnhkejFi" target="_blank" class="contact-card">
+            <img src="images/instagram.webp" alt="Instagram Logo" class="contact-logo">
+            <p>Instagram</p>
+            <small><b>@ </b>nevilchaudhari</small>
+        </a>
+        <a href="https://www.linkedin.com/in/nevilchaudhari" target="_blank" class="contact-card">
+            <img src="images/linkedin.png" alt="LinkedIn Logo" class="contact-logo">
+            <p>LinkedIn</p>
+            <small>linkedin.com/in/nevilchaudhari</small>
+        </a>
+    </div>
+</section>
+
+
+    <script>
+        const dot = document.querySelector(".cursor-dot");
+        const ring = document.querySelector(".cursor-ring");
+
+        let mouseX = 0, mouseY = 0;
+        let ringX = 0, ringY = 0;
+        const delay = 0.15;
+
+        window.addEventListener("mousemove", (e) => {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+
+            dot.style.left = mouseX + "px";
+            dot.style.top = mouseY + "px";
+        });
+
+        // Animate ring with delay
+        function animateRing() {
+            ringX += (mouseX - ringX) * delay;
+            ringY += (mouseY - ringY) * delay;
+
+            ring.style.left = ringX + "px";
+            ring.style.top = ringY + "px";
+
+            requestAnimationFrame(animateRing);
+        }
+        animateRing();
+
+        // Detect hover over clickable elements
+        document.querySelectorAll("a, button, .clickable").forEach(el => {
+            el.addEventListener("mouseenter", () => {
+                ring.classList.add("hover");
+                dot.classList.add("hide");
+            });
+            el.addEventListener("mouseleave", () => {
+                ring.classList.remove("hover");
+                dot.classList.remove("hide");
+            });
+        });
+
+    </script>
+</body>
+
+</html>
